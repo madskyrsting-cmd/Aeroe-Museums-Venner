@@ -13,6 +13,15 @@ content:
       - name: hero_image
         label: Forside – stort fotografi
         type: image
+      - name: community_image
+        label: Billeder – gårdrum og fællesskab
+        type: image
+      - name: garden_image
+        label: Billeder – museumshaven
+        type: image
+      - name: museum_image
+        label: Billeder – museets interiør
+        type: image
       - name: hero_image_credit
         label: Fotokreditering
         type: string
