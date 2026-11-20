@@ -23,10 +23,23 @@ function safeImage(value){
 function node(tag,cls,text){
  const out=document.createElement(tag);if(cls)out.className=cls;if(text!==undefined)out.textContent=String(text);return out;
 }
+function applyPageImage(id,value){
+ const img=document.getElementById(id);
+ if(!img)return;
+ const src=safeImage(value);
+ if(!src)return;
+ img.src=src;
+ img.hidden=false;
+ const hint=img.parentElement?.querySelector('.photo-story-fallback');
+ if(hint)hint.hidden=true;
+}
 function renderSettings(data){
  if(!data||Array.isArray(data))return;
  const fields=['hero_line1','hero_line2','hero_description','intro_lead','intro_body','impact_description','activities_description','member_description'];
  for(const key of fields)setText(key.replaceAll('_','-'),data[key]);
+ applyPageImage('community-photo',data.community_image);
+ applyPageImage('garden-photo',data.garden_image);
+ applyPageImage('museum-photo',data.museum_image);
  if(data.hero_image){
   const src=safeImage(data.hero_image);
   if(src){
